@@ -1,38 +1,86 @@
 .App {
   text-align: center;
+  /* display: flex; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.site-header__wrapper {
+  background-color: black;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* align-items: center; */
+  margin-bottom: 60px;
+}
+.appName {
+  font-size: 30px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.appName:hover {
+  color: red;
+  background-color: black;
+  transform: scale(1.2);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.shipCards-wraper {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 100px;
+}
+
+/* .shipCards-wraper {
+  grid-template-rows: repeat(autofill 1fr, 1fr, 1fr);
+} */
+
+.cards {
+  width: 400px;
+  height: 250px;
+  background-color: darkolivegreen;
+  border-radius: 10px;
+}
+
+span {
+  font-size: 22px;
+  font-weight: 600;
+  color: darkblue;
+}
+
+.buttons {
+  width: 100%;
+  height: 100px;
+  background-color: black;
+  /* display: flex; */
+  /* justify-content: center; */
+}
+
+a.button {
+  font-size: 22px;
+  width: 200px;
+  display: inline-block;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: darkblue;
+  background-color: #ffffff;
+  text-align: center;
+  transition: all 0.2s;
+}
+a.button:hover {
+  color: red;
+  background-color: black;
+}
+@media all and (max-width: 30em) {
+  a.button {
+    display: block;
+    margin: 0.4em auto;
   }
 }
