@@ -17,11 +17,11 @@ function App() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     const result = axios.get(currentPageUrl).then((res) => {
       // console.log(res.data.results)
-      setLoading(true)
       setNextPageUrl(res.data.next)
-      setPrevPageUrl(res.data.privious)
+      setPrevPageUrl(res.data.previous)
       setData(
         res.data.results.map((ship) => {
           return {
@@ -34,13 +34,14 @@ function App() {
       setLoading(false)
       // setData(res.data.results)
     })
-  }, [])
+  }, [currentPageUrl])
 
   if (loading) return `It's loading.... right now`
 
   const toPreviousPage = () => {
     return setCurrentPageUrl(prevPageUrl)
   }
+
   const toNextPage = () => {
     return setCurrentPageUrl(nextPageUrl)
   }
@@ -49,7 +50,12 @@ function App() {
     <div className="App" style={{ backgroundImage: `url(${background})` }}>
       <Header />
       <Cards shipInfo={data} />
-      <Pagination toPreviousPage={toPreviousPage} toNextPage={toNextPage} />
+      <Pagination
+        toPreviousPage={toPreviousPage}
+        toNextPage={nextPageUrl ? toNextPage : null}
+        // gotoNextPage={nextPageUrl ? gotoNextPage : null}
+        prevPageUrl={prevPageUrl}
+      />
     </div>
   )
 }
